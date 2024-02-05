@@ -1,19 +1,22 @@
-<form>
-    <input #nombreProducto placeholder="Nombre" type="text" required>
+<form class="row">
+    <input class="col" #nombreProducto placeholder="Nombre" type="text" required>
 <!--    value="{{ usuario.nombre}}"-->
-    <input #cantidadProducto type="number">
+
+    <input class="col" #precioProducto placeholder="Precio" type="number" required>
+
+    <input class="col" #cantidadProducto placeholder="Cantidad" type="number">
     <button type="submit" (click)="anadirProducto(nombreProducto.value, cantidadProducto.value)">Enviar</button>
 <!--    (keyup)="0" -> aparece automaticamente en el input-->
 </form>
 
-<!--&lt;!&ndash;tutorial ONE WAY BINDING&ndash;&gt;-->
-<!--&lt;!&ndash;property&ndash;&gt;-->
-<!--<p>Empresa del empleado: {{ empresa }}</p>-->
-<!--<br>-->
-<!--&lt;!&ndash;event&ndash;&gt;-->
-<!--<label>One way binding</label>-->
-<!--<input type="text" (input)="cambiaEmpresa($event)">-->
-<!--<br>-->
-<!--<label>Two way binding</label>-->
-<!--&lt;!&ndash;TWO WAY BINDING > NgModel&ndash;&gt;-->
-<!--<input type="text" [(ngModel)]="empresa">-->
+<!--tutorial ONE WAY BINDING
+&lt;!&ndash;property&ndash;&gt;
+<p>Empresa del empleado: {{ empresa }}</p>
+<br>
+&lt;!&ndash;event&ndash;&gt;
+<label>One way binding</label>
+<input type="text" (input)="cambiaEmpresa($event)">
+<br>
+<label>Two way binding</label>
+&lt;!&ndash;TWO WAY BINDING > NgModel&ndash;&gt;
+<input type="text" [(ngModel)]="empresa">-->
