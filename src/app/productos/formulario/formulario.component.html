@@ -1,13 +1,19 @@
-<form class="row">
-    <input class="col" #nombreProducto placeholder="Nombre" type="text" required>
+<form class="row" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input class="col" #nombreProducto placeholder="Nombre" type="text" name="nombre" required [(ngModel)]="datosProducto.nombre">
 <!--    value="{{ usuario.nombre}}"-->
+<!-- name es para el objeto ngModel-->
+    <input class="col" #precioProducto placeholder="Precio" type="number" name="precio" required [(ngModel)]="datosProducto.precio">
 
-    <input class="col" #precioProducto placeholder="Precio" type="number" required>
 
-    <input class="col" #cantidadProducto placeholder="Cantidad" type="number">
-    <button type="submit" (click)="anadirProducto(nombreProducto.value, cantidadProducto.value)">Enviar</button>
+    <input class="col" #categoriaProducto placeholder="Categoría" type="text" name="categoria" required [(ngModel)]="datosProducto.categoria">
+
+
+    <button type="submit" >Enviar</button>
 <!--    (keyup)="0" -> aparece automaticamente en el input-->
 </form>
+
+
+{{datosProducto | json}}
 
 <!--tutorial ONE WAY BINDING
 &lt;!&ndash;property&ndash;&gt;

@@ -24,7 +24,10 @@ export class ListadoComponent {
   //los servicios se declaran e inicializan en el constructor
   constructor(private productosServicio:ProductosServices) {
     //cargar los productos con el servicio
-    this.productos = productosServicio.productos;
+    this.productos = productosServicio.getProductos();
+    //recibe evento de otro componente para actualizar lista
+    this.productosServicio.productosChanged.subscribe(() => this.productos = productosServicio.getProductos());
+    //suscribe tiene callback y acctualiza la lista : argumento de suscribe
   }
 
   getProductos(){
@@ -44,19 +47,4 @@ export class ListadoComponent {
     }, (1000));
   }
 
-
-/*  eliminar(producto:string):void {
-    let pos=this.productos.findIndex((item)=> item.nombre.toLowerCase() == producto.toLowerCase() );
-    // console.log("Eliminando " + producto + " de posición " + pos)
-    if(pos>=0) {
-      this.eliminado = this.productos[pos];
-      this.productos.splice(pos, 1);
-      this.encontrado = true;
-    } else{
-      this.encontrado = false;
-    }
-    setTimeout(() => {
-      this.eliminado = null;
-    }, (1000));
-  }*/
 }
