@@ -1,15 +1,19 @@
-<form class="row" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <input class="col" #nombreProducto placeholder="Nombre" type="text" name="nombre" required [(ngModel)]="datosProducto.nombre">
+<form class="col" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <p class="bg-info">Introduce un nuevo producto:</p>
+    <input class="col" #nombreProducto placeholder="Nombre" type="text" minlength="1" name="nombre" required [(ngModel)]="datosProducto.nombre">
 <!--    value="{{ usuario.nombre}}"-->
 <!-- name es para el objeto ngModel-->
-    <input class="col" #precioProducto placeholder="Precio" type="number" name="precio" required [(ngModel)]="datosProducto.precio">
+    <input class="col" #precioProducto placeholder="Precio" type="number" min="1" name="precio" required [(ngModel)]="datosProducto.precio">
+    <br>
+
+    <input class="col" #categoriaProducto placeholder="Categoría" type="text" minlength="1" name="categoria" required [(ngModel)]="datosProducto.categoria">
+    <br>
 
 
-    <input class="col" #categoriaProducto placeholder="Categoría" type="text" name="categoria" required [(ngModel)]="datosProducto.categoria">
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Enviar</button>
+    <br>
 
-
-    <button type="submit" >Enviar</button>
-<!--    (keyup)="0" -> aparece automaticamente en el input-->
+    <!--    (keyup)="0" -> aparece automaticamente en el input-->
 </form>
 
 

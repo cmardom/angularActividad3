@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormsModule, NgForm} from "@angular/forms";
-import {JsonPipe} from "@angular/common";
+import {JsonPipe, NgIf} from "@angular/common";
 import {InterfaceProductos} from "../../interface.productos";
 import {ProductosServices} from "../../services/productos.services";
 
@@ -9,7 +9,8 @@ import {ProductosServices} from "../../services/productos.services";
   standalone: true,
   imports: [
     FormsModule,
-    JsonPipe
+    JsonPipe,
+    NgIf
   ],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
@@ -28,6 +29,8 @@ export class FormularioComponent {
   onSubmit(f:NgForm){
     //crearServicio(this.datosProducto);
     this.productosService.crear(this.datosProducto);
+
+
   }
 
 

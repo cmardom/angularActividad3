@@ -3,11 +3,12 @@ import { NgFor, NgIf } from '@angular/common';
 
 import { InterfaceProductos } from '../productos.module';
 import {ProductosServices} from "../../services/productos.services";
+import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-listado',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, FormsModule, ReactiveFormsModule],
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
 })
@@ -20,6 +21,7 @@ export class ListadoComponent {
   //se usa como [disabled]=eliminado en el template.
 
   encontrado: boolean = true;
+
 
   //los servicios se declaran e inicializan en el constructor
   constructor(private productosServicio:ProductosServices) {
@@ -36,6 +38,7 @@ export class ListadoComponent {
 
   eliminar(producto:string):void{
     //se usa el servicio de productos
+
     this.eliminado = this.productosServicio.eliminar(producto);
 
     this.encontrado = (this.eliminado != null); //cambia el estado si es producto o null
@@ -46,5 +49,7 @@ export class ListadoComponent {
       this.encontrado = true;
     }, (1000));
   }
+
+
 
 }
