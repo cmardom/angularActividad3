@@ -31,7 +31,12 @@ export class UsuariosServices{
 
     eliminar(usuario:string):InterfaceUsuarios|null {
         let usuarioEliminado:InterfaceUsuarios|null;
+        console.log("eliminarServicio");
         let pos=this.usuarios.findIndex((item)=> item.nombre.toLowerCase() == usuario.toLowerCase() );
+        console.log(pos);
+        console.log(usuario);
+
+
         if(pos>=0) {
             usuarioEliminado = this.usuarios[pos];
             this.usuarios.splice(pos, 1);
