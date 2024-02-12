@@ -1,0 +1,20 @@
+<br>
+<div class="row">
+
+    <div class="col-12">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <p class="bg-info">Inicia Sesión:</p>
+            <input class="col" #nombreUsuario placeholder="Nombre" type="text" minlength="1" name="nombre" required [(ngModel)]="datosUsuario.nombre">
+            <!--    value="{{ usuario.nombre}}"-->
+            <!-- name es para el objeto ngModel-->
+            <input class="col" #edadUsuario placeholder="Edad" type="number" min="1" name="edad" required [(ngModel)]="datosUsuario.edad">
+            <br>
+            <input class="col" #profesionUsuario placeholder="Profesión" type="text" minlength="1" name="profesion" required [(ngModel)]="datosUsuario.profesion">
+            <br>
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Enviar</button>
+            <br>
+        </form>
+
+        {{datosUsuario | json}}
+    </div>
+</div>
